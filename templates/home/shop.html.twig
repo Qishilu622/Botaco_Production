@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+{% block title %} Home Page {% endblock title %}
+
+{% block body %}
+
+    {{include("parts/navbar.html.twig", {'name' : 'Shop'})}}
+
+
+    <div class="section">
+	<div class="container">
+    	<div class="row">
+			<div class="col-lg-9">
+                <div class="row shop_container">
+                 {% if not products %}
+                 <p class="m-5">Sorry. no product matches your search results!</p>
+                 {% endif %}               
+                    {% for product in products %}
+                    {{include('parts/product.html.twig',{'product': product})}}
+                    {% endfor %}
+                </div>
+        	</div>
+          <div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
+            	<div class="sidebar">
+                {{ form_start(search) }}
+                	<div class="widget">
+                        <h5 class="widget_title">Categories</h5>
+                        {{ form_row(search.Categories)}}
+                    </div>
+                    <div class="widget">
+                    	<h5 class="widget_title">Price</h5>
+                            <div class="col-md-6">
+                                {{ form_row(search.minprice)}}   
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(search.maxprice)}}
+                            </div>
+                    </div>
+                    <div class="widget">
+                    	<h5 class="widget_title">Tags</h5>
+                          {{ form_row(search.tags)}}
+                    </div>
+                    <button class="btn btn-border-fill btn-block"> Search</button>
+                    {{ form_end(search)}}
+                </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+ {% block javascript %}
+ <script>
+    $(document).ready(function (){
+        $('.js-categories-multiple').select1()
+    });
+ </script>
+ {% endblock %}
