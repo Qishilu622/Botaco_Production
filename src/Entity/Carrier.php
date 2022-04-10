@@ -112,7 +112,7 @@ class Carrier
         $result = $this->name."[spr]";
 
         $result .= $this->description."[spr]";
-        $result .= "Price: $".($this->price/100)."[spr]";
+        $result .= "Price: ".($this->price/100).' Kč'."[spr]";
 
         return $result;
     }

@@ -50,12 +50,12 @@
                                 {% for element in cart.products %}
                                     <tr>
                                         <td> {{element.product.name}} <span class="product-qty">x {{ element.Quantity}}</span></td>
-                                        <td> {{ element.product.price}} Kč</td>
+                                        <td> {{ (element.product.price * 1.21) /100}} Kč</td>
                                 {% endfor %}
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Price with </th>
+                                    <th>Price without TAX </th>
                                     <td class="product-subtotal">{{ cart.data.subTotal}} Kč</td>
                                 </tr>
                                 <tr>

@@ -55,7 +55,7 @@
                                 {% for element in cart.products %}
                                     <tr>
                                         <td> {{element.product.name}} <span class="product-qty">x {{ element.Quantity}}</span></td>
-                                        <td> {{ element.product.price/100}} Kč</td>
+                                        <td> {{ (element.product.price * 1.21)/100}} Kč</td>
                                 {% endfor %}
                             </tbody>
                             <tfoot>
@@ -68,7 +68,7 @@
                                     <td class="product-subtotal">{{ cart.data.dph}} Kč</td>
                                 </tr>
                                 <tr>
-                                    <th>Shipping ( {{carrier.name}})</th>
+                                    <th>Shipping ({{carrier.name}})</th>
                                     <td class="product-subtotal">{{carrier.price/100}} Kč</td>
                                 </tr>
                                 <tr>

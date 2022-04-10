@@ -80,7 +80,6 @@
                                             <tr>
                                                 <td>{{ order.id}}</td>
                                                 <td>{{ order.createdAt | date('d/m/Y')}}</td>
-                                                <td>Processing</td>
                                                 <td>{{ order.Total/100}} for {{ order.Quantity}}</td>
                                                 <td><a href="{{ path('app_account_order_details', {'id':order.id})}}" class="btn btn-fill-out btn-sm">View</a></td>
                                             </tr>
@@ -145,7 +144,6 @@
                                 <h3>Account Details</h3>
                             </div>
                             <div class="card-body">
-                                <p>Already have an account? <a href="#">Log in instead!</a></p>
                                 <form method="post" name="enq">
                                     <div class="row">
                                         <div class="form-group col-md-6">
